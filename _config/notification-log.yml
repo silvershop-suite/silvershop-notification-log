@@ -1,0 +1,40 @@
+---
+Name: silvershop-notification-log
+---
+# The zero-touch capture chokepoint: the framework's MailerSubscriber ends onMessage() with
+# `$this->extend('updateOnMessage', ...)`, so this one extension logs every Email::send() in the whole
+# app — no Injector override, no Mailer decorator, no change to any sending module.
+SilverStripe\Control\Email\MailerSubscriber:
+  extensions:
+    - SilverShop\NotificationLog\Extension\NotificationLogMailerExtension
+
+# Read-only "Notifications" tab on the order (CMS) and the member (SecurityAdmin).
+SilverShop\Model\Order:
+  extensions:
+    - SilverShop\NotificationLog\Extension\OrderNotificationLogExtension
+
+SilverStripe\Security\Member:
+  extensions:
+    - SilverShop\NotificationLog\Extension\MemberNotificationLogExtension
+
+# CMS-configurable retention windows (Settings -> Notifications), overriding the YAML defaults per install.
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SilverShop\NotificationLog\Extension\SiteConfigNotificationLogExtension
+
+# --- Defaults you can override in your project's YAML ---------------------------------------------------
+# Retention is governed by EU law (GDPR Art. 5(1)(e)); set windows your shop can justify. 0 = unbounded.
+# SilverShop\NotificationLog\Model\SentNotification:
+#   keep_days: 365               # baseline
+#   keep_days_transactional: 730 # order/receipt/status — longer (contract / legitimate interest)
+#   keep_days_marketing: 180     # newsletter/review/stock-alert — shorter (consent)
+#   keep_body_days: 90           # drop stored bodies first, keep metadata longer
+#
+# Capture behaviour:
+# SilverShop\NotificationLog\Service\NotificationCapture:
+#   store_body: false            # metadata-only default (data minimisation, Art. 5(1)(c)/25)
+#   log_all_emails: true         # false = only log shop-attributed mail (key/order/member present)
+#
+# Erasure (Art. 17): 'pseudonymise' (default) keeps a non-PII skeleton; 'delete' removes the row.
+# SilverShop\NotificationLog\Service\NotificationErasureService:
+#   erasure_mode: pseudonymise

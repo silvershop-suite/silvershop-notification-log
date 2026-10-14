@@ -1,0 +1,10 @@
+SilverStripe\Security\Member:
+  customer:
+    FirstName: Casey
+    Surname: Customer
+    Email: customer@example.com
+
+SilverShop\Model\Order:
+  order1:
+    Status: Unpaid
+    Reference: NL-TEST-1
