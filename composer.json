@@ -1,5 +1,5 @@
 {
-    "name": "silvershop/notification-log",
+    "name": "silvershop-suite/notification-log",
     "description": "An opt-in, immutable audit log of every email SilverShop sends: who was mailed, which notification, when, and whether it went — captured zero-touch at the framework mailer, with a read-only Notifications tab on Order and Member and configurable, GDPR-minded retention and erasure.",
     "type": "silverstripe-vendormodule",
     "keywords": [
@@ -34,8 +34,8 @@
         "squizlabs/php_codesniffer": "^3.0"
     },
     "suggest": {
-        "silvershop/order-admin": "Groups the Notifications tab in with the order-admin tab layout and can source it into the order activity timeline.",
-        "silvershop/cookieconsent": "A central 'forget / export this customer' flow can call the module's erase()/export() hooks so the log is swept too.",
+        "silvershop-suite/order-admin": "Groups the Notifications tab in with the order-admin tab layout and can source it into the order activity timeline.",
+        "silvershop-suite/cookieconsent": "A central 'forget / export this customer' flow can call the module's erase()/export() hooks so the log is swept too.",
         "silvershop/notifications": "The future sending-service; this log is its lightweight persistence cousin and can consume its richer events."
     },
     "scripts": {

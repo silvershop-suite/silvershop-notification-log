@@ -5,7 +5,7 @@ sends: who was mailed, which notification, when, and whether it was accepted by 
 **zero-touch** at the framework mailer, with a read-only **Notifications** tab on Order and Member and
 **configurable, GDPR-minded retention and erasure**.
 
-It is the email counterpart of [silvershop/ledger](https://github.com/RVXD/silvershop-ledger): where the
+It is the email counterpart of [silvershop-suite/ledger](https://github.com/RVXD/silvershop-ledger): where the
 ledger is an immutable record of *money*, this is an immutable record of *what was sent to whom*. It is
 **additive and opt-in** and requires **no changes to core** — it only hooks an existing framework extension
 point.
@@ -67,7 +67,7 @@ SilverShop\NotificationLog\Service\NotificationCapture:
 ## Installation
 
 ```bash
-composer require silvershop/notification-log
+composer require silvershop-suite/notification-log
 ```
 
 Then run `dev/build`. Optionally schedule the prune task.
@@ -108,8 +108,8 @@ marketing under the ePrivacy Directive / in NL the *Telecommunicatiewet* — *ve
 
 **This log is operational, not fiscal.** Statutory financial records (invoices, credit notes — in NL the
 *fiscale bewaarplicht*, commonly ~7 years under the AWR — *verify exact scope with your accountant*) are
-produced and retained by [silvershop/invoicing](https://github.com/RVXD/silvershop-invoicing) +
-[silvershop/ledger](https://github.com/RVXD/silvershop-ledger), **not here.** Do **not** raise this log's
+produced and retained by [silvershop-suite/invoicing](https://github.com/RVXD/silvershop-invoicing) +
+[silvershop-suite/ledger](https://github.com/RVXD/silvershop-ledger), **not here.** Do **not** raise this log's
 retention to satisfy tax obligations — it may and should expire much sooner (its default is 365 days).
 
 ### Right to erasure (Art. 17) → pseudonymise by default
@@ -125,7 +125,7 @@ SilverShop\NotificationLog\Service\NotificationErasureService:
   erasure_mode: pseudonymise   # or: delete
 ```
 
-A central erasure/export flow (e.g. [silvershop/cookieconsent](https://github.com/RVXD/silvershop-cookieconsent))
+A central erasure/export flow (e.g. [silvershop-suite/cookieconsent](https://github.com/RVXD/silvershop-cookieconsent))
 should call `$member->eraseNotifications()` / `$member->exportNotifications()` so this table is swept too; the
 member "Notifications" tab doubles as the per-subject disclosure surface for access requests (Art. 15 / 20 —
 *verify*).
