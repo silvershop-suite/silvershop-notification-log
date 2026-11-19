@@ -11,7 +11,7 @@ use SilverStripe\Security\Member;
 
 /**
  * Implements the right-to-erasure (GDPR Art. 17) and right-of-access/portability (Art. 15 / 20) surface
- * for the notification log. A central "forget / export this customer" flow (e.g. silvershop/cookieconsent
+ * for the notification log. A central "forget / export this customer" flow (e.g. silvershop-suite/cookieconsent
  * or a Member-delete hook) calls erase()/export() so the log is swept too instead of silently defeating it.
  *
  * Default erasure = pseudonymise (Art. 4(5)): keep the non-identifying skeleton (which notification, when,

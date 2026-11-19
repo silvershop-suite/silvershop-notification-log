@@ -18,7 +18,7 @@ use SilverStripe\Security\Member;
  * data-protection fields (PII redaction, the Member link, a legal hold) may change afterwards, so an
  * Art. 17 erasure can pseudonymise a row without rewriting history.
  *
- * Mirrors the immutability + "created only in code" posture of silvershop/ledger's ShopPostingEntry.
+ * Mirrors the immutability + "created only in code" posture of silvershop-suite/ledger's ShopPostingEntry.
  *
  * @property string  $Recipient
  * @property string  $RecipientName

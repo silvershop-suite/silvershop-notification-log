@@ -29,7 +29,7 @@ class NotificationLogMailerExtension extends Extension
         } catch (Throwable $e) {
             // Capturing the log must never block or break a send. Swallow and record for ops.
             Injector::inst()->get(LoggerInterface::class)->warning(
-                'silvershop/notification-log: failed to capture a sent email: ' . $e->getMessage(),
+                'silvershop-suite/notification-log: failed to capture a sent email: ' . $e->getMessage(),
                 ['exception' => $e]
             );
         }

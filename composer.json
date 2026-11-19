@@ -35,8 +35,7 @@
     },
     "suggest": {
         "silvershop-suite/order-admin": "Groups the Notifications tab in with the order-admin tab layout and can source it into the order activity timeline.",
-        "silvershop-suite/cookieconsent": "A central 'forget / export this customer' flow can call the module's erase()/export() hooks so the log is swept too.",
-        "silvershop/notifications": "The future sending-service; this log is its lightweight persistence cousin and can consume its richer events."
+        "silvershop-suite/cookieconsent": "A central 'forget / export this customer' flow can call the module's erase()/export() hooks so the log is swept too."
     },
     "scripts": {
         "test": "vendor/bin/phpunit",

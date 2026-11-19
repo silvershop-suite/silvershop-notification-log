@@ -12,8 +12,8 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordViewer;
  * Applied to {@link \SilverShop\Model\Order}. Adds a read-only "Notifications" tab listing every email
  * logged against the order (newest first). View-only — records are immutable and code-generated.
  *
- * With silvershop/order-admin installed the tab sits among its regrouped tabs; standalone it is a plain
- * top-level tab. Either way it mirrors silvershop/ledger's Root.Ledger grid.
+ * With silvershop-suite/order-admin installed the tab sits among its regrouped tabs; standalone it is a plain
+ * top-level tab. Either way it mirrors silvershop-suite/ledger's Root.Ledger grid.
  */
 class OrderNotificationLogExtension extends Extension
 {
